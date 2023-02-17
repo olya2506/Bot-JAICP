@@ -1,0 +1,109 @@
+<test>
+  
+    <test-case id = "1">        
+        <q>/start</q>
+        <a state = "/Start"/>
+        <q>нет</q>
+        <a state = "/Start/Disagree"/>
+    </test-case>
+    
+    <test-case id="2">
+        <state>Start</state>
+        <q>го</q>
+        <a>Я загадал, 7 букв, угадывай!</a>
+        <a>_ _ _ _ _ _ _ </a>
+    </test-case>
+    
+    <test-case id = "3">
+        <state>Start</state>
+        <q>нет</q>
+        <a>Если что, пиши "играть" ;)</a>
+        <q>играть</q>
+        <a>Я загадал, 7 букв, угадывай!</a>
+        <a>_ _ _ _ _ _ _ </a>
+    </test-case>
+    
+    <test-case id="4">
+        <random>0,1</random>
+        <state>Start</state>
+        <q>как дела?</q>
+        <a>Я не понимаю</a>
+        <q>/NoMatch</q>
+        <a>Что вы имеете в виду?</a>
+    </test-case>
+    
+    <test-case id="5">
+        <state>Play</state>
+        <q>хватит</q>
+        <a>Игра закончилась. Для новой игры пиши "играть"</a>
+    </test-case>
+    
+    <test-case id = "6">
+        <random>0,1</random>
+        <state>Play</state>
+        <q>буква аа</q>
+        <a>Ты что-то не то вводишь..</a>
+        <q>слово п</q>
+        <a>Нужно вводить букву или слово</a>
+    </test-case>
+    
+    <test-case id = "7">
+        <state>Play</state>
+        <q>qwert</q>
+        <a>Только русские буквы</a>
+        <q>123</q>
+        <a>Только русские буквы</a>
+    </test-case>
+    
+    
+    <test-case id="8">
+        <context var="session">
+          {"hidden": "олень"}
+        </context>
+        <state>Play</state>
+        <q>слово олень</q>
+        <a>Ты угадал слово!</a>
+        <a>Игра закончилась. Для новой игры пиши "играть"</a>
+    </test-case>
+    
+    <test-case id="9">
+        <context var="session">
+          {"hidden": "олень",
+          "wrong": "1",
+          "marking": "_ _ е _ _ "}
+        </context>
+        <state>Play</state>
+        <q>йцук</q>
+        <a>Неправильное слово</a>
+        <a>_ _ е _ _ </a>
+    </test-case>
+    
+    <test-case id="10">
+        <context var="session">
+          {"hidden": "олень", 
+          "marking": "_ _ _ н _ "}
+        </context>
+        <state>Play</state>
+        <q>л</q>
+        <a>_ л _ н _ </a>
+    </test-case>
+    
+    <test-case id="11">
+        <context var="session">
+          {"hidden": "олень", 
+          "wrong": "1",
+          "marking": "_ л _ н _ "}
+        </context>
+        <state>Play</state>
+        <q>ъ</q>
+        <a>Нет буквы "ъ"</a>
+        <a>_ л _ н _ </a>
+    </test-case>
+    
+    <test-case id="12">
+        <state>Play</state>
+        <q>хватит</q>
+        <a>Игра закончилась. Для новой игры пиши "играть"</a>
+    </test-case>
+    
+</test>
